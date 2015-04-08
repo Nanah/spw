@@ -8,15 +8,11 @@ public class Enemy extends Sprite{
 	public static final int Y_TO_FADE = 400;
 	public static final int Y_TO_DIE = 600;
 	
-	private int step = 12;
+	private int step = 10;
 	private boolean alive = true;
 	
 	public Enemy(int x, int y) {
-<<<<<<< HEAD
-		super(x, y, 20, 20);
-=======
 		super(x, y, 35, 35);
->>>>>>> origin/master
 		
 	}
 
@@ -29,8 +25,7 @@ public class Enemy extends Sprite{
 					(float)(Y_TO_DIE - y)/(Y_TO_DIE - Y_TO_FADE)));
 		}
 		g.setColor(Color.PINK);
-		g.fillArc(x, y, 0, 360);
-		
+		g.fillArc(x, y, width, height, 0, 360);
 	}
 
 	public void proceed(){
