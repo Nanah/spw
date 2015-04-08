@@ -14,25 +14,21 @@ public class GamePanel extends JPanel {
 	Graphics2D big;
 	ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 
-	public GamePanel() {
+	public GamePanel() 
+	{
 		bi = new BufferedImage(400, 650, BufferedImage.TYPE_INT_ARGB);
 		big = (Graphics2D) bi.getGraphics();
-<<<<<<< HEAD
 		big.setBackground(Color.DARK_GRAY);
-=======
-		big.setBackground(Color.CYAN);
->>>>>>> origin/master
 	}
 
 	public void updateGameUI(GameReporter reporter){
+		Font f1 = new Font("Mistral",Font.BOLD,30);	//Set Font Character
+		big.setFont(f1);
 		big.clearRect(0, 0, 400, 650);
 		
 		big.setColor(Color.RED);		
-<<<<<<< HEAD
 		big.drawString(String.format("Scores: %08d", reporter.getScore()), 0, 20);
-=======
-		big.drawString(String.format("%08d", reporter.getScore()), 300, 20);
->>>>>>> origin/master
+
 		for(Sprite s : sprites){
 			s.draw(big);
 		}
