@@ -9,11 +9,11 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class GamePanel extends JPanel {
 	
-	private BufferedImage bi;	
+	private BufferedImage bi;
 	Graphics2D big;
 	ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 
@@ -28,7 +28,7 @@ public class GamePanel extends JPanel {
 		big.setFont(f1);
 		big.clearRect(0, 0, getWidth(), getHeight());
 		
-		big.setColor(Color.RED);		
+		big.setColor(Color.YELLOW);		
 		big.drawString(String.format("Scores : %08d", reporter.getScore()), 0, 20);
 		for(Sprite s : sprites){
 			s.draw(big);
@@ -38,6 +38,16 @@ public class GamePanel extends JPanel {
 		big.fillRect(0,570,400,80);
 
 		repaint();
+	}
+
+	//Show String "Game Over"
+	public void GameEnd(GameReporter reporter)
+	{
+		Font f1 = new Font("Mistral",Font.BOLD, 60);	//Set Font Character
+		big.setFont(f1);
+
+		big.setColor(Color.RED);		
+		big.drawString("Game Over !!!", 30, 300);	//String, x axis, y axis 
 	}
 
 	@Override

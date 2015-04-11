@@ -7,7 +7,8 @@ import java.awt.event.KeyListener;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Iterator;
-
+import java.awt.Font;
+import java.awt.Color;
 import javax.swing.Timer;
 
 
@@ -44,7 +45,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	}
 	
 	private void generateEnemy(){
-		Enemy e = new Enemy((int)(Math.random()*390), 30);
+		Enemy e = new Enemy((int)(Math.random()*5), 2);
 		gp.sprites.add(e);
 		enemies.add(e);
 	}
@@ -74,6 +75,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			er = e.getRectangle();
 			if(er.intersects(vr)){
 				die();
+				gp.GameEnd(this);	//Show String "Game Over!!!" 
 				return;
 			}
 		}
