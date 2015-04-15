@@ -20,6 +20,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	
 	private Timer timer;
 	
+	private int state = 1;
 	private long score = 0;
 	private double difficulty = 0.1;
 	
@@ -30,7 +31,7 @@ public class GameEngine implements KeyListener, GameReporter{
 		gp.sprites.add(v);
 		
 		timer = new Timer(50, new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				process();
@@ -45,7 +46,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	}
 	
 	private void generateEnemy(){
-		Enemy e = new Enemy((int)(Math.random()*5), 2);
+		Enemy e = new Enemy((int)(Math.random()*380),2);
 		gp.sprites.add(e);
 		enemies.add(e);
 	}
@@ -95,6 +96,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			break;
 		case KeyEvent.VK_D:
 			difficulty += 0.1;
+			state += 1;
 			break;
 		}
 	}
@@ -102,11 +104,14 @@ public class GameEngine implements KeyListener, GameReporter{
 	public long getScore(){
 		return score;
 	}
+
+	public int getState(){						//called value state
+		return state;						 
+	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		controlVehicle(e);
-		
+		controlVehicle(e);	
 	}
 
 	@Override
