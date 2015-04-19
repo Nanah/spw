@@ -34,7 +34,6 @@ public class GamePanel extends JPanel {
 			s.draw(big);
 		}
 		
-
 		//Show number of states
 		big.setColor(Color.BLUE);		
 		big.drawString(String.format("State : %02d", reporter.getState()), 0, 50);
@@ -42,8 +41,7 @@ public class GamePanel extends JPanel {
 			s.draw(big);
 		}
 
-
-		big.setColor(Color.GREEN);
+		big.setColor(Color.GREEN);		//floor
 		big.fillRect(0,570,400,80);
 
 		repaint();
